@@ -30,9 +30,11 @@ clone.join(" ")
 // - Remove the first word in the array (strings)
 cloneShift.shift();
 // - Find all the words that contain 'is' use string method 'includes'
-strings.includes("is")
+let allIs = strings.filter((string) => string.includes("is"))
 // - Find all the words that contain 'is' use string method 'indexOf'
-
+let allIsAgain = strings.filter(
+  (string) => string.indexOf("is") !== -1
+)
 // - Check if all the numbers in numbers array are divisible by three use array method (every)
 let isDivisible =  numbers.every((cv)=>{
     return cv % 3 === 0;
@@ -41,7 +43,6 @@ console.log(isDivisible);
 // -  Sort Array from smallest to largest
 let isSmallest = sortNum.sort((a,b)=> {
   return a - b;
-
 })
 console.log(isSmallest);
 
@@ -54,8 +55,10 @@ let accum = numbers.reduce((acc,cv) =>{
   } return acc;
 },0)
 console.log(accum);
-// - Find longest string in strings
 
+// let target = numbers.sort((a,b) => a - b).pop();
+// - Find longest string in strings
+let longestString = [...strings].sort((a,b) => a.length - b.length).pop();
 // - Find all the even numbers
 let evenNumbers = numbers.filter(function(value){
   return value % 2 === 0;
@@ -75,8 +78,7 @@ console.log(sliceNum.slice(3,7));
 // - Make a subset of strings array ['a','collection']
 console.log(sliceStr.slice(2,4));
 // - Replace 12 & 18 with 1221 and 1881
-(spliceNum.splice(1,2,1221,1881));
-console.log(spliceNum);
+numbers.splice(numbers.indexOf(12), 1, 1221)
 // - Replace words in strings array with the length of the word
 
 // - Find the sum of the length of words using above question
@@ -89,11 +91,15 @@ var customers = [
   { firstname: 'Jack', lastname: 'White' },
 ];
 // - Find all customers whose firstname starts with 'J'
-
+let filterCustomer = customers.filter((customer) =>
+customer.firstname.startsWith("J")
+);
 // - Create new array with only first name
-
+let firstNameCustomer = customers.map((customer) =>
+customer.firstname
+);
 // - Create new array with all the full names (ex: "Joe Blogs")
 
 // - Sort the array created above alphabetically
-
+[...fullNameCustomer].sort();
 // - Create a new array that contains only user who has at least one vowel in the firstname.
