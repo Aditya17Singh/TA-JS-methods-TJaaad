@@ -36,6 +36,8 @@ function double(num) {
 }
 let doubleNumbers = numbers.map(double);
 ```
+`![](./img/map.jpg)``
+
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -68,6 +70,8 @@ function isOdd(num) {
 }
 let oddNumbers = numbers.filter(isOdd);
 ```
+`![](./img/filter.jpg)``
+
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -92,6 +96,7 @@ function add(accumulator, currentValue) {
 }
 let sum = numbers.reduce(add);
 ```
+`![](./img/reduce.jpg)``
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
