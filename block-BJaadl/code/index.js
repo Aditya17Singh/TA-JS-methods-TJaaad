@@ -19,14 +19,25 @@ let longest = words.sort(
 // let longestString = [...strings].sort((a,b) => a.length - b.length).pop();
 
 // - Convert the above array "words" into an array of length of word instead of word.
-// let map1 = words.map(x => )
+let wordsLength = words.map((w) => w.length)
 // - Create a new array that only contains word with atleast one vowel.
-// let result = words.filter(word => word.length === )
+function checkVowel (words){
+  return (
+    words.toLowerCase().includes("a") ||
+    words.toLowerCase().includes("e") ||
+    words.toLowerCase().includes("i") ||
+    words.toLowerCase().includes("o") ||
+    words.toLowerCase().includes("u") 
+  )
+}
+let vowelFilter = words.filter((w) => checkVowel(w))
 // - Find the index of the word "rhythm"
-words.indexOf("rhythm");
+words.findIndex((w) => w == "rhythm")
 // - Create a new array that contians words not starting with vowel.
-
+let nowWithVowel = words.filter((w) => !checkVowel(w[0]))
 // - Create a new array that contianse words not ending with vowel
+
+let notEndVowel = words.filter((w) => !checkVowel(w[w.length -1]))
 
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -55,7 +66,7 @@ let sort1 = [...numbers].sort((a,b) => a - b)
 // - Find the sum of the numbers in the array.
 let sumArray1 = numbers.reduce((acc,cv) => acc + cv);
 //- Write a function averageNumbers that receives an array of numbers and calculate the average of the numbers
-let averageNumbers = numbers.reduce((a,b) =>   (a + b) / 10)
+let averageNumbers = numbers.reduce((a,b) =>   a + b)/ numbers.length
 let strings = [
   'seat',
   'correspond',
@@ -70,3 +81,11 @@ let strings = [
 ];
 
 // - Write a function averageWordLength that receives an array of words2 and calculate the average length of the words.
+
+function averageWorldLength(words){
+  return words.map((w) => w.length)
+  .reduce((acc,cv) => {
+    return acc + cv;
+  }
+  )
+}
