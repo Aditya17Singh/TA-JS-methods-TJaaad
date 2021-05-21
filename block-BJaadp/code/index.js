@@ -16,19 +16,80 @@ let persons = [
 // NOTE: Use reduce method whereever you can to solve this exercise:
 
 // Find the average grade
+let averageGrade = persons.reduce((acc,cv) => {
+  acc = acc + cv.grade;
+  return acc
+},0)/ persons.length
 
 // Find the average grade of male
+// let maleGrade = persons.filter(person => {
+//   if(person.sex === "M"){
+//     return person.grade;
+//   }
+// })
+// let averageMaleGrade = maleGrade.reduce((acc,cv)=>{
+//   acc += cv.grade
+//   return acc;
+// },0)/maleGrade.length
 
+
+let count = 0;
+let averageGradeMale = persons.reduce((acc,cv)=>{
+  if(cv.sex === "M"){
+    acc += cv.grade;
+    ++count;
+  }
+  return acc;
+},0)/count;
 // Find the average grade of female
-
+let counter = 0
+let averageGradeFemale = persons.reduce((acc,cv) => {
+  if(cv.sex === "F"){
+    acc = acc + cv.grade;
+    ++counter
+  }
+  return acc;
+},0)/counter
 // Find the highest grade
-
+let highestGrade = persons.reduce((acc,cv) => {
+  if(acc < cv.grade){
+    acc = cv.grade
+  }
+  return acc;
+},0)
 // Find the highest grade in male
-
+let gradeMale = persons.filter(person => {
+  if(person.sex === "M"){
+    return person.sex
+  }
+})
+let highestGradeMale = gradeMale.reduce((acc,cv) => {
+  acc < cv.grade
+  acc = cv.grade;
+  return acc
+},0)
 // Find the highest grade in female
-
+let gradeFemale = persons.filter(person => {
+  if(person.sex === "F"){
+    return person.sex
+  }
+})
+let highestGradeFemale = gradeFemale.reduce((acc,cv) => {
+   (acc < cv.grade)
+    acc = cv.grade
+    return acc;
+},0)
 // Find the highest grade for people whose name starts with 'J' or 'P'
-
+let gradePeople = persons.filter(people => {
+  if(people.name[0] === "J" || people.name[0] === "P"){
+    return people.name
+  }
+}).reduce((acc,cv) =>{
+  if(acc < cv.grade){
+  acc = cv.grade
+  }
+  return acc
+},0)
 const fruitBasket = [
   'banana',
   'cherry',
@@ -51,6 +112,9 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
+let fruitsObj= fruitBasket.reduce((acc,cv) => {
+  acc.cv = 
+},{})
 
 /* 
 
