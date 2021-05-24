@@ -1,11 +1,11 @@
 // NOTE: You can not use reduce methods to solve this exercise
 
 function countAllPeople() {
-  // your code goes here
+  peopleByHouses
 }
 
 function peopleByHouses() {
-  // your code goes here
+  peoplehouse
 }
 
 function everyone() {
