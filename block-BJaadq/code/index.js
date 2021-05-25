@@ -1,68 +1,101 @@
 // NOTE: You can not use reduce methods to solve this exercise
 
-function countAllPeople() {
-  let totalPeople = 0;
+function countAllPeople(){
+  let totalPeople = 0
   got.houses.forEach(house => {
     totalPeople = totalPeople + house.people.length
   })
-  return totalPeople;
+  return totalPeople
 }
 
-function peopleByHouses() {
+
+function peopleByHouses(){
   let final = {};
   got.houses.forEach( house => {
-    final[house.name] = house.people.length;
+    final[house.name] = house.people.length
   })
   return final
 }
+
 
 function everyone(){
   let final = []
-   got.houses.forEach(house => {
-     let housePeople = house.people.map (
-       person => person.name
-     );
-     final =  final.concat(housePeople);
-   })
-   return final
-}
-
-function nameWithS() {
-  let allPeople = everyone();
-  return allPeople.filter(name => 
-    name.toLowerCase().includes("s")
-  );
-}
-
-function nameWithA() {
-  let allPeople = everyone();
-  return allPeople.filter(name => 
-    name.toLowerCase().includes("a")
-  );
-}
-
-function surnameWithS() {
-  let allPeople = everyone();
-  return allPeople.filter(name => 
-    name.split(" ")[1].toLowerCase().includes("s")
-  ); 
-}
-
-function surnameWithA() {
-  let allPeople = everyone();
-  return allPeople.filter(name => 
-    name.split(" ")[1].toLowerCase().includes("s")
-  ); 
-}
-
-function peopleNameOfAllHouses() {
-  let final = {}
-  got.houses.forEach(house => {
-    final[house.name] = house.people.map(p => p.name)
+  got.houses.forEach( house => {
+    let housePeople = house.people.map( p => p.name)
+     final.push(housePeople)
   })
   return final
 }
 
+// function nameWithS(){
+//   let final1 =[]
+//   got.houses.forEach( p => {
+//     let housePeople1 = p.people.map(house => house.name)
+//     final1.push(housePeople1)
+//   })
+//   final1 = [...final1].filter( house1 => {
+//     house1.includes("s")
+//   })
+//   return final1
+// }
+function nameWithS(){
+  let final = []
+   got.houses.forEach( house => {
+     house.people.filter( p => {
+      if(p.name.toLowerCase().includes("s")){
+        final.push(p.name);
+      }
+    })
+  })
+  return final;
+}
+
+function nameWithA(){
+  let final = []
+  got.houses.forEach(house => {
+    house.people.filter( p => {
+      p.name.toLowerCase().includes("A")
+      final.push(p.name)
+    })
+  })
+  return final
+}
+
+function surnameWithS(){
+  let final = []
+  got.houses.forEach(house => {
+    house.people.map( p => {
+      if(p.name.split(" ")[1].startsWith("S")){
+        final.push(p.name)
+      }
+    })
+  })
+  return final
+}
+
+function surnameWithA(){
+  let final = []
+  got.houses.forEach( house => {
+    house.people.forEach(p => {
+      if(p.name.split(" ")[1].startsWith("A")){
+        final.push(p.name)
+      }
+    })
+  })
+  return final
+}
+
+function peopleNameOfAllHouses(){
+  let final = {}
+  got.houses.forEach( house => {
+    let arr = []
+    house.people.forEach( p => {
+      arr.push(p.name)
+    })
+    final[house.name] = arr
+  })
+  return final
+}
 // Testing your result after writing your function
 console.log(countAllPeople());
 // Output should be 33
@@ -91,6 +124,6 @@ console.log(surnameWithA());
 // Output should be
 // ["Lysa Arryn", "Jon Arryn"]
 
-console.log(peopleNameOfAllHouses());
+console.log(peopleNameOfAllHouses()); 
 // Output should be
 // {Arryns: ["Jon Arryn"], Baratheons: ["Robert Baratheon", "Stannis Baratheon", "Renly Baratheon", "Joffrey Baratheon", "Tommen Baratheon", "Myrcella Baratheon"], Dothrakis: ["Khal Drogo"], Freys: ["Walder Frey"], Greyjoys: ["Balon Greyjoy", "Theon Greyjoy", "Yara Greyjoy"], Lannisters: ["Tywin Lannister", "Tyrion Lannister", "Jaime Lannister", "Cersei Baratheon"], Redwyne: ["Olenna Tyrell"], Starks: ["Eddard Stark", "Benjen Stark", "Robb Stark", "Sansa Stark", "Arya Stark", "Brandon Stark", "Rickon Stark", "Jon Snow"], Targaryens: ["Daenerys Targaryen", "Viserys Targaryen"], Tullys: ["Catelyn Stark", "Lysa Arryn", "Edmure Tully", "Brynden Tully"], Tyrells: ["Margaery Baratheon", "Loras Tyrell"]}
