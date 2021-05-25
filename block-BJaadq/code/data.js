@@ -1,5 +1,5 @@
 const got = {
-  houses: [
+  houses: [ 
     {
       name: "Starks",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Stark",
